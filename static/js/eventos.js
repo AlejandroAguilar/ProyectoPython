@@ -18,8 +18,26 @@ $( document ).ready(function() {
 			  method: "POST",
 			  url: "/",
 			  data: { "usuario": usuario, "pass": pass },
-			  success:function() {
-			      console.log("regreso"); 
+			  //dataType: 'json',
+			  success:function(data) {
+			    console.log("Exito"); 
+
+			    console.log("resultado: ".data.resultado);
+
+
+			  },
+		      error: function(xhr, textStatus, error) {
+			      console.log("Error");			
+
+			      console.log(xhr.statusText);
+			      console.log(textStatus);
+			      console.log(error);      
+
+			      $("#botonInicio").html('¡Error!');
+                   setTimeout(function(){                            
+                        $("#botonInicio").html('Ingreso');
+                   }
+                   ,1800);
 			  }
 			});
 		}
