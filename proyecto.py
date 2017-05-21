@@ -20,7 +20,7 @@ class Login:
 		return render.login()
 
 	def POST( self ):
-		jsonvar =  web.input
+		jsonvar =  web.input()
 		Login.user = str( jsonvar['usuario'] )
 		Login.pswd = str( jsonvar['pass'] )
 		print "User " + Login.user
@@ -29,6 +29,7 @@ class Login:
 
 class Start:
 	def GET( self ):
+		print "I'm here"
 		return render.inicio()
 
 
