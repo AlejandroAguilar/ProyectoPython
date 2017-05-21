@@ -2,7 +2,7 @@ import web
         
 urls = (
     #'/(.*)', 'hello'
-    '/', 'Index'
+    '/', 'Login'
 )
 app = web.application(urls, globals())
 render = web.template.render('templates/')
@@ -11,6 +11,13 @@ class Index:
 	def GET( self ):
 		return render.index()
 
+class Login:
+	def GET( self ):
+		return render.login()
+
+	def POST( self ):
+		Login.user = web.input()
+		Login.pswd = web.input()
 
 class hello:        
     def GET(self, name):
