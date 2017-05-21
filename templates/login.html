@@ -7,25 +7,34 @@
 	<script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 
 	<script type="text/javascript" src="/static/js/eventos.js"></script>
+	<link rel="stylesheet" href="/static/css/myStyle.css">
 
 	<title>Login</title>
 </head>
 <body>
 
-	<div>
+	
+	<div id="form_container" class="">
 		<fieldset>
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">Usuario</label>
-			    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
-			  </div>
-			  <div class="form-group">
-			    <label for="exampleInputPassword1">Password</label>
-			    <input type="password" class="form-control" id="pass" placeholder="Password">
-			  </div>
 
-			  <button id="button_submit" type="" class="btn btn-default">Submit</button>
+			<center>
+				<legend>Control system</legend>
+			</center>
+			<div class="form-group">
+			<label for="exampleInputEmail1">Usuario</label>
+			<input type="text" class="form-control" id="usuario" placeholder="Usuario">
+			</div>
+			<div class="form-group">
+			<label for="exampleInputPassword1">Password</label>
+			<input type="password" class="form-control" id="pass" placeholder="Password">
+			</div>
+			<center>
+				<button id="button_submit" type="" class="btn btn-default btn-primary">Enviar</button>
+			</center>
+
 	  	</fieldset>
 	</div>
+
 
 </body>
 </html>
