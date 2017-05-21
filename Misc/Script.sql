@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `control`.`Usuarios` (
   `Usuario` VARCHAR(50) NOT NULL,
   `Password` VARCHAR(50) NOT NULL,
   `Matricula` VARCHAR(50) NOT NULL,
+  `Identificacion` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`Id_Usuarios`))
 ENGINE = InnoDB;
 
@@ -129,6 +130,17 @@ CREATE TABLE IF NOT EXISTS `control`.`Tipo_Actividades` (
   `Nombre` VARCHAR(50) NOT NULL,
   `Descripcion` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`Id_Tipo_Actividades`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `control`.`Relacion_Padre_Hijo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `control`.`Relacion_Padre_Hijo` (
+  `id_Relacion_Padre_Hijo` INT NOT NULL AUTO_INCREMENT,
+  `Id_usuario_padre` INT NOT NULL,
+  `Id_usuario_hijo` INT NOT NULL,
+  PRIMARY KEY (`id_Relacion_Padre_Hijo`))
 ENGINE = InnoDB;
 
 
