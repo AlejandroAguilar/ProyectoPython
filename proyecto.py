@@ -2,7 +2,8 @@ import web
         
 urls = (
     #'/(.*)', 'hello'
-    '/', 'Login'
+    '/', 'Login',
+    '/inicio', 'Start'
 )
 app = web.application(urls, globals())
 render = web.template.render('templates/')
@@ -12,12 +13,24 @@ class Index:
 		return render.index()
 
 class Login:
+	user = ''
+	paswd = ''
+	
 	def GET( self ):
 		return render.login()
 
 	def POST( self ):
-		Login.user = web.input()
-		Login.pswd = web.input()
+		jsonvar =  web.input
+		Login.user = str( jsonvar['usuario'] )
+		Login.pswd = str( jsonvar['pass'] )
+		print "User " + Login.user
+		print "Pass " + Login.pswd
+		raise web.seeother('/inicio')
+
+class Start:
+	def GET( self ):
+		return render.inicio()
+
 
 class hello:        
     def GET(self, name):
