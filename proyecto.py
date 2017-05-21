@@ -3,7 +3,7 @@ import web
 urls = (
     #'/(.*)', 'hello'
     '/', 'Login',
-    '/inicio', 'Start'
+    '/inicio', 'Start',
 )
 app = web.application(urls, globals())
 render = web.template.render('templates/')
@@ -17,7 +17,7 @@ class Login:
 	paswd = ''
 	
 	def GET( self ):
-		return render.login()
+		return render.login(11)
 
 	def POST( self ):
 		jsonvar =  web.input()
@@ -29,8 +29,10 @@ class Login:
 
 class Start:
 	def GET( self ):
-		print "I'm here"
-		return render.inicio()
+		print "I'm here!!!"
+		jsonvar = { 'resultado': 'true'}
+		print jsonvar
+		return jsonvar
 
 
 class hello:        
