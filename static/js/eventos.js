@@ -18,26 +18,29 @@ $( document ).ready(function() {
 			  method: "POST",
 			  url: "/",
 			  data: { "usuario": usuario, "pass": pass },
-			  //dataType: 'json',
+			  dataType: 'json',
 			  success:function(data) {
-			    console.log("Exito"); 
+			    console.log("Exito");
+			    console.log(data);
+			    console.log("resultado: "+data.resultado);
 
-			    console.log("resultado: ".data.resultado);
-
+			    if ( data.resultado ) {
+			    	// Se puede quitar el timeout
+			     	setTimeout(function(){
+			     		console.log('Rediccion')
+                        window.location.href = "/inicio";
+                   	}
+                    ,1800);
+			    }
 
 			  },
 		      error: function(xhr, textStatus, error) {
-			      console.log("Error");			
+			      console.log("Error");
 
 			      console.log(xhr.statusText);
 			      console.log(textStatus);
-			      console.log(error);      
+			      console.log(error);
 
-			      $("#botonInicio").html('¡Error!');
-                   setTimeout(function(){                            
-                        $("#botonInicio").html('Ingreso');
-                   }
-                   ,1800);
 			  }
 			});
 		}

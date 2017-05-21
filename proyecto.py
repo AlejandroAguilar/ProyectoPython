@@ -1,5 +1,6 @@
 import web
-        
+import demjson
+
 urls = (
     #'/(.*)', 'hello'
     '/', 'Login',
@@ -17,7 +18,7 @@ class Login:
 	paswd = ''
 	
 	def GET( self ):
-		return render.login(11)
+		return render.login()
 
 	def POST( self ):
 		jsonvar =  web.input()
@@ -25,14 +26,16 @@ class Login:
 		Login.pswd = str( jsonvar['pass'] )
 		print "User " + Login.user
 		print "Pass " + Login.pswd
-		raise web.seeother('/inicio')
+		jsonvar = { "resultado": True}
+		obj = demjson.encode( jsonvar )
+		print type( obj )
+		print obj 
+		return obj
 
 class Start:
 	def GET( self ):
 		print "I'm here!!!"
-		jsonvar = { 'resultado': 'true'}
-		print jsonvar
-		return jsonvar
+		return render.inicio()
 
 
 class hello:        
