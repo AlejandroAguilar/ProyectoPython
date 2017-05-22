@@ -1,17 +1,21 @@
 import web
 import demjson
+import config
+import model
 
 urls = (
-    #'/(.*)', 'hello'
-    '/', 'Login',
+    '/(.*)', 'Index',
+    #'/', 'Login',
     '/inicio', 'Start',
 )
 app = web.application(urls, globals())
 render = web.template.render('templates/')
 
 class Index:
-	def GET( self ):
-		return render.index()
+	def GET( self, name ):
+		res = model.extract()
+		print str( res[ 0 ] )
+		return render.login()
 
 class Login:
 	user = ''
